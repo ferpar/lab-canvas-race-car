@@ -30,6 +30,10 @@ window.onload = function () {
     this.ourIntervalID = 0;
     this.score = 0;
     this.lapScore = 0;
+
+    this.carImg = new Image();
+    this.carImg.src = "./images/car.png";
+
   }
 
   Canvas.prototype.draw = function () {
@@ -64,11 +68,10 @@ window.onload = function () {
   }
 
   Canvas.prototype.drawCar = function () {
-    var carImg = new Image();
-    carImg.src = "./images/car.png";
-    carImg.onload = function () {
-      this.ctx.drawImage(carImg, this.carPosition, 500, 50, 100);
-    }.bind(this)
+    
+    // this.carImg.onload = function () {
+      this.ctx.drawImage(this.carImg, this.carPosition, 500, 50, 100);
+    // }.bind(this)
   }
 
   Canvas.prototype.clear = function () {
@@ -88,6 +91,7 @@ window.onload = function () {
   }
 
   Canvas.prototype.startRendering = function () {
+
 
     this.ourIntervalID = setInterval(function () {
       this.clear();
